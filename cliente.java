@@ -1,4 +1,4 @@
-package POO;
+package Econogen;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -29,7 +29,8 @@ public class cliente {
 		this.despesas = despesas;
 	}
 	
-	/*public String formatarRenda()
+	/*Deivide colocou como comentário
+	 * public String formatarRenda()
 	{
 		NumberFormat nf = NumberFormat.getCurrencyInstance();
 		nf.setMinimumFractionDigits(2);
@@ -44,6 +45,24 @@ public class cliente {
 		return formatoMoeda;
 	}*/
 	
+	public void Nome()
+	{
+		System.out.println("\nNome cliente :");
+		nomeCliente = leia.nextLine();
+	}
+	
+	public void Idade()
+	{
+		System.out.println("\nQual a sua idade :");
+		idade = leia.nextInt();
+	}
+	
+	public void renda()
+	{
+		System.out.println("\nQual sua renda :");
+		rendaMensal = leia.nextFloat();
+	}
+	
 	public void TotalDespesas()
 	{
 		System.out.println("\nQual o valor total de despesas mensal:");
@@ -53,27 +72,11 @@ public class cliente {
 	public void sobraMensal()
 	{
 		resto = rendaMensal - despesas;
-		System.out.println("resto mensal : "+moeda.format(resto));
-	}
-	public void Nome()
-	{
-		System.out.println("\nNome cliente :");
-		nomeCliente = leia.nextLine();
+		System.out.println("\nSobrou "+moeda.format(resto) +" do seu salário, vamos economizar para realizar o seu sonhos?");
 	}
 	
-	public void renda()
-	{
-		System.out.println("\nQual sua renda :");
-		rendaMensal = leia.nextFloat();
-	}
-	
-	public void Idade()
-	{
-		System.out.println("\nQual a sua idade :");
-		idade = leia.nextInt();
-	}
-	
-	public void rendaMeses()
+	/*Jeffrey colocou como comentario
+	 * public void rendaMeses()
 	{
 		System.out.println("\nQuantidade de meses :");
 		meses = leia.nextInt();
@@ -105,12 +108,115 @@ public class cliente {
 		System.out.println("\nVocê tem a opção 3 de pegar o valor total que sobra mensalmente e dividr em "
 		+df.format(Math.ceil(parcelas)) + " parcelas" + " de " + moeda.format(op3));
 	}
+	*/
 	
-	public void valorSonho()
-	{
-		System.out.println("\nQual o valor do seu sonho");
-		sonho = leia.nextFloat();
-	}
+	//Jeffrey adicionou
+		public void menuValorSonho()
+		{
+			int escolha;
+			
+				System.out.println("\nVocê deseja continuar? ");
+				System.out.println("[1] SIM");
+				System.out.println("[2] NÃO");
+				escolha = leia.nextInt();
+				if (escolha==1)
+				{
+					System.out.println("\nTudo bem, podemos continuar!");
+				}
+				else
+				{
+					System.out.println("\nAté a próxima!");
+					System.exit(0);
+				}
+
+		}
+		
+		
+	//adicionado pelo jeffrey
+		public void tipoSonho()
+		{
+			int escolha;
+				System.out.println("\nQual é o seu sonho ? ");
+				System.out.println("\n1 - Automóvel");
+				System.out.println("2 - Casa");
+				System.out.println("3 - Casamento");
+				System.out.println("4 - Viagem");
+				System.out.println("5 - Pé de meia");
+				escolha = leia.nextInt();
+			if(escolha==1)
+			{
+				System.out.println("\nMuito bem, um automóvel é uma ótima escolha!");
+			}
+			else if(escolha==2)
+			{
+				System.out.println("\nUma escolha incrível, ter sua própria casa é uma meta maravilhosa!");
+			}
+			else if(escolha==3)
+			{
+				System.out.println("\nPara um casamento dos sonhos, é sempre melhor se preparar!");
+			}
+			else if(escolha==4)
+			{
+				System.out.println("\nAquela viagem incrível, que em breve você poderá desfrutar!");
+			}
+			else if(escolha==5)
+			{
+				System.out.println("\nFazer um pé de meia, é sempre importante!");
+			}
+			else
+			{
+				System.out.println("Escolha inválida!");
+				System.out.println("\nEscolha uma das opções mostradas: \n1 - Automóvel \n2 - Casa \n3 - Casamento \n4 - Viagem \n5 - Pé de meia ");
+				escolha = leia.nextInt();
+				
+			}
+		}
+		
+		public void valorSonho()
+		{
+			System.out.println("\nQual o valor do seu sonho");
+			sonho = leia.nextFloat();
+		}
+		
+		//adicionado pelo Jeffrey
+		public void opcoes(){
+			int escolha;
+			System.out.println("\nQual plano você gostaria de aderir ? ");
+			System.out.println("\n1 - GenBasic (Sobra mais dinheiro no bolso, e seu sonho é realizado com o prazo mais longo)");
+			System.out.println("2 - GenSilver (Sobra um pouquinho de dinheiro no bolso, e seu sonho é realizado em um prazo médio)");
+			System.out.println("3 - GenGold (Não sobra dinheiro no bolso, mas seu sonho é realizado de forma super rápida, no prazo curto)");
+			escolha = leia.nextInt();
+			
+			if(escolha==1)
+			{
+				op1 = (resto * 50)/100;
+				parcelas = sonho/op1;
+				System.out.println("\nVocê escolheu o plano GenBasic, e com isso você pode pagar "
+				+df.format(Math.ceil(parcelas)) + " parcelas" + " de " + moeda.format(op1) +" para realizar o seu sonho!" );
+			}
+			
+			else if(escolha ==2)
+			{
+				op2 = (resto * 75)/100;
+				parcelas = sonho/op2;
+				System.out.println("\n\nVocê escolheu o plano GenSilver, e com isso você pode pagar "
+				+df.format(Math.ceil(parcelas)) + " parcelas" + " de " + moeda.format(op2) +" para realizar o seu sonho!");
+			}
+			else if(escolha ==3)
+			{
+				op3 = resto;
+				parcelas = sonho/op3;
+				System.out.println("\n\nVocê escolheu o plano GenGold, e com isso você pode pagar "
+				+df.format(Math.ceil(parcelas)) + " parcelas" + " de " + moeda.format(op3) +" para realizar o seu sonho!");
+			}
+			else
+			{
+				System.out.println("Escolha inválida!");
+				System.out.println("\nEscolha uma das opções mostradas: \n1 - GenBasic \n2 - Casa \n3 - GenSilver \n4 - GenGold");
+				escolha = leia.nextInt();
+				
+			}
+		}
 	
 	public float getDespesas() {
 		return despesas;
