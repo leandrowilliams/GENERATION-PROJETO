@@ -1,4 +1,4 @@
-package projetogen;
+package EcoGen;
 
 import java.util.Scanner;
 

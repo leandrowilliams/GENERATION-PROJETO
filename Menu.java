@@ -1,4 +1,4 @@
-package projetogen;
+package EcoGen;
 
 public class Menu {
 
